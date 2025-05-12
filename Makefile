@@ -30,9 +30,10 @@ third-party:third-party/yajl-2.1.0
 
 third-party/yajl-2.1.0.tar.gz:
 	mkdir -p third-party
-	curl -L https://github.com/lloyd/yajl/archive/refs/tags/2.1.0.tar.gz -o third-party/yajl-2.1.0.tar.gz
+	#curl -L https://github.com/lloyd/yajl/archive/refs/tags/2.1.0.tar.gz -o third-party/yajl-2.1.0.tar.gz
+	git clone https://github.com/rtobar/yajl.git third-party/yajl-2.1.0
 third-party/yajl-2.1.0:third-party/yajl-2.1.0.tar.gz
-	tar -zxf third-party/yajl-2.1.0.tar.gz -C third-party
+	#tar -zxf third-party/yajl-2.1.0.tar.gz -C third-party
 	cd third-party/yajl-2.1.0/ && ./configure
 	cd third-party/yajl-2.1.0/ && make
 
