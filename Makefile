@@ -1,7 +1,5 @@
 CFLAGS= -Wall -Wextra -fPIC -I third-party/build/include
-LDFLAGS=-lcurl -lpthread
-prefix=/usr/local
-
+LDFLAGS=-lcurl -lpthread prefix=/usr/local
 release:CFLAGS += -O3
 release:all
 
@@ -31,7 +29,7 @@ third-party:third-party/yajl-2.1.0
 third-party/yajl-2.1.0.tar.gz:
 	mkdir -p third-party
 	#curl -L https://github.com/lloyd/yajl/archive/refs/tags/2.1.0.tar.gz -o third-party/yajl-2.1.0.tar.gz
-	git clone https://github.com/rtobar/yajl.git third-party/yajl-2.1.0
+	[ ! -d third-party/yajl-2.1.0 ] && git clone https://github.com/rtobar/yajl.git third-party/yajl-2.1.0 || echo "already pulled"
 third-party/yajl-2.1.0:third-party/yajl-2.1.0.tar.gz
 	#tar -zxf third-party/yajl-2.1.0.tar.gz -C third-party
 	cd third-party/yajl-2.1.0/ && ./configure
